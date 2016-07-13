@@ -1,8 +1,10 @@
 #!/bin/bash
-file="/"
+
+source vars/five9.yml
+file="$filepath"
 if [ -f "$file" ]
 then
-	echo "$file found."
+	mv -nv -- "$file" "$file.$(date +%Y%m%d)"
 else
 	echo "$file not found."
 fi
