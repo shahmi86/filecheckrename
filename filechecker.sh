@@ -1,11 +1,13 @@
 #!/bin/bash
-
-source vars/five9.yml
-file="$filepath"
-ext="$ext"
+ 
+configfile="/home/filecheckrename/vars/five9.cfg"
+source "$configfile"
+file="$filepath"."$ext"
+extension="$ext"
+ 
 if [ -f "$file" ]
 then
-	mv -nv -- "$file" "$(date -r "$file" +"%Y%m%d_%H%M%S").+"$ext" "
+         mv -nv -- "$file" "$filepath"_"$(date -r "$file" +"%Y%m%d_%H%M").$extension"
 else
-	echo "$file not found."
+         echo $file "not found."
 fi
